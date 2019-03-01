@@ -1,6 +1,6 @@
 #!/bin/bash
 folder=${1}
-DIRNAME="$(dirname $(readlink -f "$0"))"
+DIRNAME="$( cd "$(dirname "$0")" ; pwd -P )"
 ref=$(cat "${DIRNAME}/.LAST_GREEN_COMMIT") 
 # Always indicate changes unless valid green commit ref given, #1
 if [[ ! ${ref:+1} ]]; then 

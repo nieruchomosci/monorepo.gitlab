@@ -1,7 +1,7 @@
 #!/bin/bash
 folder=${1}
 command=${@:2}
-DIRNAME="$(dirname $(readlink -f "$0"))"
+DIRNAME="$( cd "$(dirname "$0")" ; pwd -P )"
 ${DIRNAME}/changes.sh ${folder}
 if [[ $? -ne 0 ]]; then
   echo "Skipping build for '${folder}'."
